@@ -1,0 +1,55 @@
+﻿@model EPI_USE_Web_Application.Models.ManagerModel
+
+@{
+    ViewData["Title"] = "EmployeeDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <h1 class="text-center">Manager Details</h1>
+            <div class="row">
+
+                <div class="col-md-4  "></div>
+                <div class=" col-md-4 ">
+                    <ul>
+                        <li>
+                            <text>Manager Number: </text>@Html.DisplayFor(model => model.ManagerNumber)
+                        </li>
+
+                        <li>
+                            <text>Manager Name: </text>
+                            @Html.DisplayFor(model => model.ManagerName)
+                        </li>
+                        <li>
+                            <text>Manager Surname: </text>@Html.DisplayFor(model => model.ManagerSurname)
+                        </li>
+
+                        <li>
+                            <text>Manager Salary: </text>
+                            @Html.DisplayFor(model => model.ManagerSalary)
+                        </li>
+                    </ul>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <div>
+                        <a asp-action="Update" asp-route-id="@Model.ManagerNumber" class="btn btn-primary">Update</a>
+                        <a asp-action="Index" class="btn btn-warning">Manager List</a>
+                    </div>
+
+                </div>
+                <div class="col-md-4 "></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

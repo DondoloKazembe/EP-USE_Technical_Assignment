@@ -1,0 +1,71 @@
+﻿@model IEnumerable<EPI_USE_Web_Application.Models.EmployeeModel>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h1>EMPLOYEES</h1>
+
+    <p>
+        <a asp-action="Create" class=" btn btn-primary">Create Employee</a>
+    <p />
+
+    <input type="button" class="btn btn-warning" value="View Managers" onclick="@("window.location.href='" + @Url.Action("Index", "Manager") + "'");" />
+
+    <form asp-action="Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Filter By: <input type="text" name="SearchTerm" value="@ViewData["CurrentFilter"]" />
+                <input type="submit" value="Search" class="btn btn-default" />
+            </p>
+        </div>
+    </form>
+
+    @*Table that will display of all employee information*@
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th><h5>Avator Profile</h5></th>
+                <th><h5>Employee Number</h5></th>
+                <th><h5>Employee Name</h5></th>
+                <th><h5>Employee Surname</h5></th>
+                <th><h5>BirthDate</h5></th>
+                <th><h5>Employee Position</h5></th>
+                <th><h5>Employee Salary</h5></th>
+                <th><h5>Line Manager</h5></th>
+                <th><h5>Manage</h5></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var emp in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.GravatarImage(
+                        emp.EmployeeName,
+                        size: 60,
+                        defaultImage: GravatarHtmlHelper.DefaultImage.Retro,
+                        rating: GravatarHtmlHelper.Rating.G,
+                       cssClass: "gravatar img-responsive")
+                </td>
+                <td> @Html.DisplayFor(modelitem => emp.EmployeeNumber)</td>
+                <td> @Html.DisplayFor(modelitem => emp.EmployeeName)</td>
+                <td> @Html.DisplayFor(modelitem => emp.EmployeeSurname)</td>
+                <td> @Html.DisplayFor(modelitem => emp.BirthDate)</td>
+                <td> @Html.DisplayFor(modelitem => emp.EmployeePosition)</td>
+                <td> @Html.DisplayFor(modelitem => emp.EmployeeSalary)</td>
+                <td> @Html.DisplayFor(modelitem => emp.ManagerNumber)</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@emp.EmployeeNumber" class=" btn btn-warning">Update</a>
+                    <p></p>
+                    <a asp-action="Details" asp-route-id="@emp.EmployeeNumber" class=" btn btn-primary">Details</a>
+                    <p></p>
+                    <a asp-action="Delete" asp-route-id="@emp.EmployeeNumber" class=" btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+        }
+        </tbody>
+    </table>

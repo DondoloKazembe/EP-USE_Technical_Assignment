@@ -1,0 +1,42 @@
+﻿@model EPI_USE_Web_Application.Models.EmployeeModel
+
+@{
+    ViewData["Title"] = "DeleteError";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container" style="colour:silver">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center" style="color:red">Error Page</h1>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div>
+                        <div class="text-center" style="padding:0 30px 0 30px">
+                            <img class="container" style="max-width:500px;max-height:800px" src="~/lib/Images/Error.jpg" />
+                        </div>
+                        <p></p>
+                        <p></p>
+                        <p class=" text-center" style="color:black">
+                            An error has occured while processing this request.
+                            This manager is still associated with an employee.
+                            Please update all employees associated with this manager number.
+                            Click the button below to return to the manager page.
+                        </p>
+                    </div>
+                    <div class="text-center" style="padding:0 10px 0 10px">
+                        <a asp-action="Index" class="btn btn-warning">Manager List</a>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+

@@ -1,0 +1,63 @@
+﻿@model EPI_USE_Web_Application.Models.EmployeeModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">Delete Employee</h1>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <ul>
+                        <li>
+                            <text>Employee Number: </text>@Html.DisplayFor(model => model.EmployeeNumber)
+                        </li>
+
+                         <li>
+                            <text>Employee Name: </text>@Html.DisplayFor(model => model.EmployeeName)
+                         </li>
+
+                         <li>
+                            <text>Employee Surname: </text>@Html.DisplayFor(model => model.EmployeeSurname)
+                         </li>
+                            
+                         <li>
+                            <text>Employee Birth Date: </text>@Html.DisplayFor(model => model.BirthDate)
+                         </li>
+
+                         <li>
+                            <text>Employee Position: </text>@Html.DisplayFor(model => model.EmployeePosition)
+                         </li>
+                            
+                         <li>
+                            <text>Employee Salary: </text>@Html.DisplayFor(model => model.EmployeeSalary)
+                         </li>
+                        <li>
+                            <text> Line Manager Number: </text>@Html.DisplayFor(model => model.ManagerNumber)
+                        </li>
+                    </ul>
+
+                    <form asp-action="Delete">
+                        <inpt type="hidden" asp-for="EmployeeNumber" />
+                        <div>
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                            <a asp-action="Index" class="btn btn-warning">Cancel</a>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+

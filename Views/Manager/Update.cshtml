@@ -1,0 +1,78 @@
+﻿@model EPI_USE_Web_Application.Models.ManagerModel
+
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-12">
+
+            <h1 class="text-center">Update Manager Details</h1>
+            <div class="row">
+
+                <div class="col-md-4  "></div>
+                <div class=" col-md-4 ">
+                    <form asp-action="Update">
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="ManagerNumber" />
+
+                        <div class="form-group">
+
+                            <label asp-for="ManagerName" class="control-label"> </label>
+                            <input asp-for="ManagerName" class="form-control" />
+                            <span asp-validation-for="ManagerName" class="text-danger"></span>
+
+                        </div>
+                        <p></p>
+                        <p></p>
+                        <div class="form-group">
+
+                            <label asp-for="ManagerSurname" class="control-label"> </label>
+                            <input asp-for="ManagerSurname" class="form-control" />
+                            <span asp-validation-for="ManagerSurname" class="text-danger"></span>
+
+                        </div>
+                        <p></p>
+                        <p></p>
+                        <div class="form-group">
+
+                            <label asp-for="ManagerSalary" class="control-label"> </label>
+                            <input asp-for="ManagerSalary" class="form-control" />
+                            <span asp-validation-for="ManagerSalary" class="text-danger"></span>
+
+                        </div>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                        <div class="form-group">
+                            <input type="submit" value="Update" class="btn btn-success" />
+                            <a asp-action="Index" class="btn btn-warning">Cancel</a>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="col-md-4 "></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

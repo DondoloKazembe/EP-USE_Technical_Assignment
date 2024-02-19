@@ -1,0 +1,57 @@
+﻿@model IEnumerable<EPI_USE_Web_Application.Models.ManagerModel>
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>MANAGERS</h1>
+
+<p>
+    <a asp-action="Create" class=" btn btn-primary">Add Manager</a>
+<p/>
+<td>
+    <input type="button" class="btn btn-warning" value="View Employees" onclick="@("window.location.href='" + @Url.Action("Index", "Employee") + "'");" />
+    <input type="button" class="btn btn-primary" value="View Organisation Hierarchy" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");" />
+</td>
+
+    @*for the display of all manager information*@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th><h5> Profile</h5></th>
+            <th><h5>Manager Number</h5></th>
+            <th><h5>Manager Name</h5></th>
+            <th><h5>Manager Surname</h5></th>
+            <th><h5>Manager Salary</h5></th>
+            <th><h5>Manage</h5></th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var man in Model)
+            {
+            <tr>
+                <td>@Html.GravatarImage(
+                         man.ManagerName,
+                         size: 60,
+                         defaultImage: GravatarHtmlHelper.DefaultImage.Retro,
+                         rating: GravatarHtmlHelper.Rating.G,
+                        cssClass: "gravatar img-responsive")</td>
+                <td> @Html.DisplayFor(modelitem => man.ManagerNumber)</td>
+                <td> @Html.DisplayFor(modelitem => man.ManagerName)</td>
+                <td> @Html.DisplayFor(modelitem => man.ManagerSurname)</td>
+                <td> @Html.DisplayFor(modelitem => man.ManagerSalary)</td>
+
+                <td>
+                    <a asp-action="Update" asp-route-id="@man.ManagerNumber" class=" btn btn-warning">Update</a>
+                    <p></p>
+                    <a asp-action="Details" asp-route-id="@man.ManagerNumber" class=" btn btn-primary">Details</a>
+                    <p></p>
+                    <a asp-action="Delete" asp-route-id="@man.ManagerNumber" class=" btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+            }
+    </tbody>
+</table>

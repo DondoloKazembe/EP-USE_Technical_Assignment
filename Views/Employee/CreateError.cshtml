@@ -1,0 +1,42 @@
+﻿@model EPI_USE_Web_Application.Models.EmployeeModel
+
+@{
+    ViewData["Title"] = "CreateError";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center" style="color:red">Error Page</h1>
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div>
+                        <div class="text-center" style="padding:0 30px 0 30px">
+                            <img class="container" style="max-width:500px;max-height:800px" src="~/lib/Images/Error.jpg" />
+                        </div>
+                        <p></p>
+                        <p></p>
+                        <p class=" text-center" style="color:black">
+                            An error has occured while processing this request.
+                            Please ensure that the employee number enterd is not in use and the manager number exists.
+                            Please return to the create page to create an employee or return to the employee page.
+                        </p>
+                    </div>
+                    <div class="text-center" style="padding:0 10px 0 10px">
+                        <a asp-action="Index" class="btn btn-warning">Employee List</a>
+                        <a asp-action="Create" class="btn btn-dark">Create Employee</a>
+                    </div>
+                </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
